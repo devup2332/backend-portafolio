@@ -11,6 +11,6 @@ server.use(morgan("dev"));
 
 server.use("/api/contact", contactRouter);
 
-server.listen(env.PORT, () => {
+server.listen(env.PORT || 8080, () => {
   console.log(`Server is running on port ${env.PORT}`);
 });
