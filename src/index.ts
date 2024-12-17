@@ -9,7 +9,7 @@ server.use(express.json());
 server.use(morgan("dev"));
 server.use(
   cors({
-    origin: ["http://localhost:5173", "https://www.drojascam.com"],
+    origin: ["*"],
   }),
 );
 
