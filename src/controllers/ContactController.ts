@@ -48,7 +48,7 @@ export class ContactController {
           message: "Email was sent successfully",
           status: 200,
         })
-        .writeHead(200, { "access-control-allow-origin": "*" })
+        .writeHead(200, { "Access-Control-Allow-Origin": "*" })
         .status(200);
     } catch (err) {
       console.error({ err });
@@ -58,7 +58,7 @@ export class ContactController {
           status: 500,
           err,
         })
-        .writeHead(200, { "access-control-allow-origin": "*" })
+        .writeHead(500, { "Access-Control-Allow-Origin": "*" })
         .status(500);
     }
   }
