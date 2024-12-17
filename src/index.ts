@@ -5,11 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 
 const server = express();
-server.use(
-  cors({
-    origin: "*",
-  }),
-);
+server.use(cors());
 server.use(express.json());
 server.use(morgan("dev"));
 
