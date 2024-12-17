@@ -5,7 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 
 const server = express();
-const origins = ["http://localhost:5173", "https://drojascam.com"];
+const origins = ["https://www.drojascam.com", "http://localhost:5173"];
 server.use(
   cors({
     origin: origins,
