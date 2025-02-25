@@ -12,7 +12,11 @@ export class ContactController {
 
   async sendEmail(req: Request, res: Response) {
     try {
+      console.log({
+        body: req.body,
+      });
       const parsed = ContactSchema.parse(req.body);
+      console.log({ parsed });
 
       const { email, firstName, lastName, phone, message } = parsed;
 

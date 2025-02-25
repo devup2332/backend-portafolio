@@ -1,8 +1,9 @@
 import express from "express";
-import contactRouter from "./routes/contact";
+import contactRouter from "./routers/contact";
 import { env } from "./env";
 import morgan from "morgan";
 import cors from "cors";
+import { logColor } from "./utils/logColor";
 
 const server = express();
 const origins = ["https://www.drojascam.com", "http://localhost:5173"];
@@ -17,5 +18,5 @@ server.use(morgan("dev"));
 server.use("/api/contact", contactRouter);
 
 server.listen(env.PORT || 8080, () => {
-  console.log(`Server is running on port ${env.PORT}`);
+  logColor(`SERVER ON PORT ${env.PORT}`, "green");
 });
