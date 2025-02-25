@@ -3,6 +3,7 @@ import { env } from "../env";
 import { Personalization } from "mailersend/lib/modules/Email.module";
 import { Request, Response } from "express";
 import { ContactSchema } from "../schemas/contactSchema";
+import { logColor } from "../utils/logColor";
 
 const mailerSend = new MailerSend({
   apiKey: env.API_KEY_SEND_MAILER,
@@ -12,11 +13,7 @@ export class ContactController {
 
   async sendEmail(req: Request, res: Response) {
     try {
-      console.log({
-        body: req.body,
-      });
       const parsed = ContactSchema.parse(req.body);
-      console.log({ parsed });
 
       const { email, firstName, lastName, phone, message } = parsed;
 
@@ -46,7 +43,7 @@ export class ContactController {
 
       await mailerSend.email.send(emailParams);
 
-      console.log("Email was sent successfully");
+      logColor("EMAIL WAS SEND SUCCESSFULLY", "green");
       res
         .json({
           message: "Email was sent successfully",
